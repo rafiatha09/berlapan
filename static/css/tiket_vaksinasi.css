@@ -1,0 +1,34 @@
+#judulContainer {
+    text-align: center;
+    padding: 10px;
+    width: 750px;
+}
+
+#biodataPeserta {
+    padding: 10px;
+    width: 1000px;
+}
+
+#lokasi {
+    padding: 10px;
+    width: 1000px;
+}
+
+#persyaratan {
+    padding: 10px;
+    width: 1000px;
+}
+
+p {
+    text-align: center;
+}
+
+button {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#backToHome {
+    display: flex;
+    justify-content: center;
+}

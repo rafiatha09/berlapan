@@ -5,14 +5,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="shorcut icon" href="{% static 'img/Berlapan_logo.png' %}">
   {% block meta %}
   {% endblock meta %}
+
+  {% include 'components/styles.html' %}
 </head>
 
 <body>
+  {% include 'components/navbar.html' %}
+
   {% block content %}
   {% endblock content %}
+
+  {% include 'components/footer.html' %}
+
+  {% include 'components/script.html' %}
 </body>
 
 </html>

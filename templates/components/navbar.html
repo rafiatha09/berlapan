@@ -1,0 +1,49 @@
+{% load static %}
+<style>
+    .nav-link {
+        color: rgb(76, 173, 132);
+    }
+
+    .dropdown-item {
+        color: rgb(76, 173, 132);
+        font-weight: bolder;
+    }
+
+    .logo {
+        margin-left: 100px;
+        margin-top: 10px;
+    }
+</style>
+<section class="header">
+    <nav class="navbar navbar-expand-xl navbar-light bg-light py-xl-2 ">
+        <a href="{% url 'main:home' %}">
+            <img class="logo " src="{% static 'img/Berlapan_logo.png' %}" width="auto" height="auto">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="nav justify-content-end ">
+
+                <li class="nav-item dropdown mr-5">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false"> Jadi Relawan</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="{% url 'salingbantu:salingbantu' %}">Saling Bantu</a>
+                        <a class="dropdown-item" href="{% url 'relawanvaksin:index' %}">Relawan Vaksin</a>
+                        <a class="dropdown-item" href="{% url 'donorpage:donorpage' %}">Donor Darah</a>
+                        <a class="dropdown-item" href="{% url 'daftar_vaksinasi:index' %}">Vaksin</a>
+                        <a class="dropdown-item" href="#">Test Swap/PCR</a>
+                    </div>
+                </li>
+
+                <li class="nav-item mr-5">
+                    <a class="nav-link" href="#">Hubungi Kami</a>
+                </li>
+            </ul>
+        </div>
+
+    </nav>
+</section>
