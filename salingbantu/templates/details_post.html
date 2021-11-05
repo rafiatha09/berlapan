@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Details Post</title>
+<link rel="stylesheet" href="{% static 'css/details_post.css' %}">
+{% endblock meta %}
+
+{% block content %}
+<div class="container">
+        <h1 style="font-size: x-large;">{{post.title}}<h1>
+                <i class="fa fa-user fa-xs"></i>
+                <span style="font-size: medium;">{{post.user}}</span>
+                <hr>
+                <p class="text-justify" style="font-size: small;">{{post.body}}</p>
+        <hr>
+        <h2>Comments</h2>
+        {% if not post.comments.all %}
+                No Comments Yet....
+                <a href="{% url 'salingbantu:add_comment' post.pk %}">Add One</a>
+        {% else %}
+        <a href="{% url 'salingbantu:add_comment' post.pk %}">Add Comment</a>
+        <br>
+                {% for comment in post.comments.all %}
+                        <br>
+                        {{comment.user}} - {{comment.date_added}}
+                        <br>
+                        {{comment.body}}
+                        <br>
+                {% endfor %}
+        {% endif %}
+        <br>
+        
+        <div class="text-left">
+                <a class="btn btn-sb btn-sm" href="{% url 'salingbantu:salingbantu' %}" type="button">
+                    Back
+                </a>
+        </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    {% block meta %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- Required meta tags -->
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport">
+    {% endblock meta %}
+</head>
+{% block content %}
+<h2>Detail relawan vaksin</h2>
+
+</div>
+<div class="container">
+    <div class="row">
+        <div class="column">
+            <div class="card">
+            </div>
+        </div>
+        <div class="column">
+            <div class="card">
+                <img src="{{ relawan_vaksin.foto.url }}" alt="Jane" style="width:100%">
+                <div class="container">
+                    <h2>{{ relawan_vaksin.Nama }}</h2>
+                    <p class="title">{{ relawan_vaksin.Peran }}</p>
+                    <p>{{ relawan_vaksin.email }}</p>
+                    <p>021{{ relawan_vaksin.nomor_hp }}</p>
+                    <p><button class="button"><a href="{% url 'Daftar_relawan:data-relawan-vaksin'  %}"
+                                class="link-light">Kembali</a> </button></p>
+                </div>
+            </div>
+
+            </body>
+            {% endblock %}
+</html>

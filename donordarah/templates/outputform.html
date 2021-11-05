@@ -1,0 +1,46 @@
+{% extends 'base.html' %} {% load static %} {% block meta %}
+<title>Hasil Pendaftaran Golongan Darah</title>
+{% endblock meta %} {% block content %}
+<h1 id="formDonor" style="color: #4cad84" class="text-center mt-lg-5">Hasil Pendaftaran Relawan Donor Darah</h1>
+
+<div class="m-5 row justify-content-center">
+  <div class="card me-3 justify-content-center d-inline-block p-3" style="width: 30rem">
+    <ul class="list-group list-group-flush justify-content-center">
+      <p class="text-center" id="titleOutputForm" style="font-size: large; font-weight: bolder; color: #4cad84">Data Diri</p>
+      <li class="list-group-item">
+        <strong>Nama </strong> <br />
+        {{result.FullName}}
+      </li>
+      <li class="list-group-item">
+        <strong>NIK </strong> <br />
+        {{result.NIK}}
+      </li>
+      <li class="list-group-item">
+        <strong>Tanggal Lahir </strong> <br />
+        {{result.BirthDate}}
+      </li>
+      <li class="list-group-item">
+        <strong>Golongan Darah </strong> <br />
+        {{result.Goldar}}
+      </li>
+    </ul>
+  </div>
+  <div class="card me-3 justify-content-center d-inline-block p-3" style="width: 30rem">
+    <ul class="list-group list-group-flush justify-content-center">
+      <p class="text-center" id="titleOutputForm" style="font-size: large; font-weight: bolder; color: #4cad84">Data Sentra Layanan Donor Darah</p>
+      <li class="list-group-item">
+        <strong>Tempat Layanan Golongan Darah </strong> <br />
+        {{result.Sentra}}
+      </li>
+      <li class="list-group-item">
+        <strong>Tanggal </strong> <br />
+        {{result.Date}}
+      </li>
+      <li class="list-group-item">
+        <strong>Waktu </strong> <br />
+        {{result.Time}}
+      </li>
+    </ul>
+  </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+    {% block meta %}
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    </head>
+    {% endblock meta %}
+    {% block content %}
+    
+        <body>
+            {% if submitted %}
+            <div class="container">
+                <h2>Data berhasil dimasukkan</h2>
+                <p class="lead">
+                   Selamat Anda telah berhasil terdaftar sebagai anggota relawan vaksin.
+                   Klik tombol berwana merah untuk melihat data-data relawan vaksin singkat
+                   atau klik tombol hijau untuk melihat data relawan vaksin yang lebih detail
+                </p>
+                <hr class="my-4">
+                <div class="d-grid gap-2 d-md-block">   
+                    <button class="btn btn-danger" type="button"><a href="{% url 'Daftar_relawan:main-view'  %}" class = 'text-reset'>Data relawan vaksin singkat</button>
+                    <button class="btn btn-success" type="button"><a href="{% url 'Daftar_relawan:data-relawan-vaksin'  %}" class = 'text-reset'></a>Data relawan vaksin detail</button>
+            {% else %}
+                <div class="container">
+                    <div class="jumbotron" >
+                        <h2 class="intro-title" >Daftar  Relawan Vaksin</h2>
+                        <p class="lead">
+                            Untuk membantu pemerataan vaksin di Indonesia, Berlapan.com menginisiasi
+                            gerakan vaksinasi gratis untuk masyarakat di sekitar. Untuk merealisasikan
+                            gerakan ini, Kami mengajak Kalian untuk secara sukarela
+                            mendaftar jadi relawan vaksin. Kami sangat membutuhkan relawan-relawan vaksin
+                            yang untuk memenuhi peran menjadi vaksinator, screening, pelaporan, dan Registerasi.
+                            silahkan mendaftar menjadi relawan vaksin di Berlapan.com dengan menekan button di bawah ini.
+                            
+                        </p>
+                        <hr class="my-4">
+                    </div>
+                    <button class="btn btn-success center-block daftar">Registrasi Relawan Vaksin</button>
+
+        
+                    <div class="form-floating mb-3">
+                            <form action="" method= "POST" enctype="multipart/form-data">
+                            <h2>Sign up registerasi relawan vaksin</h2>
+                            <hr>
+                            {% csrf_token %}
+                            {{ form.as_p}}
+                            {{ form.media }}
+                            <p>Dengan mendaftar menjadi relawan vaksin,Anda telah setuju dengan persyaratan <a href="#" style="color:dodgerblue">Terms & Privacy</a> dari Berlapan.com.</p>
+
+                            <div class="clearfix">
+                                <!-- <a href="/Daftar_relawan/"><button type="button" class="cancelbtn">Cancel</button></a> -->
+                                <button type="submit" class="btn btn-primary justify-content-center">Daftar</button>
+                            </div>
+                            </form>
+                    </div>
+                    
+                </div>
+                <!-- Menyembunyikan form dan menampikannya setelah user meneka tombol registrasi relawan vaksin -->
+                <script>
+                    $(".daftar").on("click",function(){
+                        $(".mb-3:hidden").fadeIn(1000);
+                        $(".jumbotron").fadeOut(200);
+                        $(".daftar").fadeOut(100);
+                    })
+                </script> 
+        {% endif %}
+        </body>
+    {% endblock %}
+
+</html>

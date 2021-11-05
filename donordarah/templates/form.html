@@ -1,0 +1,61 @@
+{% extends 'base.html' %} {% load static %} {% block meta %}
+<title>Formulir Golongan Darah</title>
+{% endblock meta %} {% block content %}
+<h1 id="formDonor" class="text-center mt-lg-5">Formulir Pendaftaran</h1>
+<h1 id="formDonor" class="text-center mb-lg-4">Relawan Donor Darah</h1>
+
+<form method="POST" action="">
+  {% csrf_token %}
+  <div class="row justify-content-center">
+    <div class="m-2 col-md-6 card rounded-3">
+      <div class="card-body">{{ form.as_p }}</div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="mt-3 ms-5 col-md-6">
+      <p id="setujuBox">Dengan mencentang syarat-syarat di bawah, Anda setuju menjadi pendonor darah.</p>
+    </div>
+    <div class="m-0 ms-5 col-md-6">
+      <div class="form-check">
+        <input required class="form-check-input" type="checkbox" value="checkSadar" id="checkSadar" />
+        <label style="font-weight: normal" class="form-check-label" for="checkSadar"> Saya mengisi data dengan sesungguhnya dan dalam keadaan sadar. </label>
+      </div>
+    </div>
+    <div class="m-0 mb-3 ms-5 col-md-6">
+      <div class="form-check">
+        <input required class="form-check-input" type="checkbox" value="checkSyarat" id="checkSyarat" />
+        <label style="font-weight: normal" class="form-check-label" for="checkSyarat"> Saya telah memenuhi persyaratan pendonor darah. </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center m-3">
+    <input type="submit" value="Daftar" id="submitButton" class="rounded-pill bg-success" />
+  </div>
+</form>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script>
+  $(document).ready(function () {
+    $("#daftarForm").click(function () {
+      var nama = $("#namaForm").val();
+      var goldar = $("#goldarForm").val();
+      var nik = $("#nikForm").val();
+      var tglLahir = $("#tglForm").val();
+      var checked = $("input[type='checkbox']");
+
+      if (nama == "" || nik == "" || goldar == "Pilih" || tglLahir == "" || checked.length != checked.filter(":checked").length) {
+      } else {
+        swal({
+          title: "Pendaftaran Berhasil!",
+          icon: "success",
+          text: "Silakan lihat profil Anda untuk informasi lebih lanjut.",
+          button: "Ok",
+        });
+      }
+    });
+  });
+</script>
+{% endblock content %}

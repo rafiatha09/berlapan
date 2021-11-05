@@ -1,0 +1,70 @@
+{% extends 'base.html' %} {% load static %} {% block meta %}
+<title>Donor Darah</title>
+{% endblock meta %} {% block content %}
+
+<div class="jumbotron" id="donor" style="height: 600px">
+  <div class="d-inline-block">
+    <h1 class="display-4 m-2 mt-5">Ayo</h1>
+    <h1 class="display-4 m-2">Donor Darah!</h1>
+    <a href="{% url 'donorpage:form' %}" class="btn btn-success rounded-pill active m-2 text-center" id="daftarButton" role="button" aria-pressed="true">Daftar</a>
+  </div>
+  <div class="d-inline-block float-end">
+    <img id="imgDonor" src="{% static 'img/donor.png' %}" />
+  </div>
+</div>
+
+<div class="mt-5 mb-5 p-5" style="background-color: rgb(41, 41, 41)">
+  <h3 class="text-center" style="font-style: italic; color: white">Mengapa Donor Darah?</h3>
+  <div class="row justify-content-center p-3">
+    <div class="card col-sm-3 p-3 m-3 shadow" style="width: 18rem">
+      <img class="card-img-top p-5" src="{% static 'img/helping.png' %}" alt="Card image cap" />
+      <div class="card-body">
+        <p class="card-text text-center" style="font-weight: bold">Membantu orang lain yang membutuhkan</p>
+      </div>
+    </div>
+    <div class="card col-sm-3 p-3 m-3 shadow" style="width: 18rem">
+      <img class="card-img-top" src="{% static 'img/seldarah.png' %}" alt="Card image cap" />
+      <div class="card-body">
+        <p style="font-weight: bold" class="card-text text-center">Meningkatkan produksi sel darah merah</p>
+      </div>
+    </div>
+    <div class="card col-sm-3 p-3 m-3 shadow" style="width: 18rem">
+      <img class="card-img-top p-5" src="{% static 'img/health.png' %}" alt="Card image cap" />
+      <div class="card-body">
+        <p style="font-weight: bold" class="card-text text-center">Menjaga kesehatan tubuh</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mb-4">
+  <div class="row justify-content-center">
+    <div class="text-center" style="max-width: 950px; max-height: 100px">
+      <p id="judulSentra" style="font-size: xx-large; color: #4cad84">Daftar Sentra Layanan Donor Darah</p>
+    </div>
+  </div>
+  {% for i in namaLayanan %}
+  <div class="row justify-content-center">
+    <div class="card m-2 rounded-3 shadow" style="max-width: 950px; max-height: 100px">
+      <div class="row g-0">
+        <div class="col-md-1 m-3">
+          <p class="text-center">{{i.Number}}</p>
+        </div>
+        <div class="col-md-3 m-3 text-center">
+          <h5 class="card-title" name="layanan" value="layanan">{{i.Name}}</h5>
+        </div>
+        <div class="col-md-3 m-3">
+          <p class="text-center">Lokasi</p>
+          <p class="text-center" style="font-weight: normal">{{i.City}}, {{i.Province}}</p>
+        </div>
+        <div class="col-md-3 m-3">
+          <p class="text-center">Golongan Darah</p>
+          <p class="text-center" style="font-weight: normal">{{i.Goldar}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  {%endfor%}
+</div>
+
+{% endblock content %}

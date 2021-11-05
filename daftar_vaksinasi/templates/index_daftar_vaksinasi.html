@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+    <meta charset="UTF-8" />
+    <title>Ayo Daftar Vaksinasi</title>
+    <link rel="icon" href="static/img/Berlapan_logo.png">
+    <link rel="stylesheet" href="{% static 'css/index_daftar_vaksinasi.css' %}">
+{% endblock meta %}
+
+{% block content %}
+    <div class="container bg-success rounded" id="title">
+      <h1>Ayo Vaksinasi!</h1>
+    </div>
+      <h3>Mengapa sih saya harus divaksinasi?</h3>
+    <div class="container bg-warning rounded" id="satu">
+      <h4>1. Mencegah risiko tertular COVID-19</h4>
+      <p>Vaksinasi membuat seseorang tidak mudah tertular COVID-19. Akan tetapi,
+        protokol kesehatannya tetap dijaga ya!
+      </p>
+    </div>
+    <div class="container bg-warning rounded" id="dua">
+      <h4>2. Mengurangi risiko gejala berat jika terkena COVID-19</h4>
+      <p>Vaksinasi membuat sistem imun tubuh kita lebih kuat melawan virus Corona. 
+        Walaupun sampai tertular, gejala yang ditimbulkan dari infeksi COVID-19
+        pada orang yang telah divaksinasi biasanya ringan.
+      </p>
+    </div>
+    
+    <div class="container bg-warning rounded" id="tiga">
+      <h4>3. Mendorong terbentuknya Herd Immunity</h4>
+      <p>Bila diberikan secara massal, vaksin COVID-19 juga mampu mendorong terbentuknya 
+        kekebalan kelompok (herd immunity) dalam masyarakat. Artinya, orang yang tidak bisa 
+        mendapatkan vaksin, misalnya bayi baru lahir, lansia, atau penderita kelainan sistem imun
+        tertentu, bisa mendapatkan perlindungan dari orang-orang di sekitarnya.
+      </p>
+    </div>
+    <div class="container bg-warning rounded" id="empat">
+      <h4>4. Meminimalisasi dampak ekonomi dan sosial</h4>
+      <p>Jika sebagian besar masyarakat sudah memiliki sistem kekebalan tubuh yang baik untuk melawan 
+        penyakit COVID-19, kegiatan sosial dan ekonomi masyarakat bisa kembali seperti sediakala.
+      </p>
+    </div>
+    <div class="container" id="tombolDaftar">
+      <button class="btn btn-success rounded">
+        <a class="btn btn-success rounded" href="forms">Ayo Daftar Vaksinasi Sekarang!</a>
+      </button>
+    </div>
+{% endblock content %}
+
