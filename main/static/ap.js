@@ -8,7 +8,7 @@ function togglePopuptiga() {
     document.getElementById("popup-3").classList.toggle("active");
 }
 
-fetch("https://v1.nocodeapi.com/rafiath11/xml_to_json/ORlBbbKsECUGpNjo?url=https://covid19.go.id/feed/masyarakat-umum")
+fetch("https://v1.nocodeapi.com/rafiatha11/xml_to_json/XAEksBgurJJkpFsB?url=https://covid19.go.id/feed/masyarakat-umum")
     .then(response => response.json())
     .then(response => {
         const items = response?.rss?.channel?.item
