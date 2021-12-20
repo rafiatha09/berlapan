@@ -8,7 +8,7 @@ from salingbantu.forms import *
 # Create your views here.
 class SalingBantu(ListView):
     model = Post
-    template_name='home.html'
+    template_name='home_bantu.html'
 
 class DetailsPost(DetailView):
     model = Post
