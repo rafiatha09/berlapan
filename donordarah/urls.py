@@ -9,4 +9,5 @@ urlpatterns = [
     path('layananpage/', views.layananPage, name='layananpage'),
     path('form/', views.formPage, name='form'),
     path('outputform/', views.hasilFormPage, name='outputform'),
+    path('json', views.flutter, name= 'json'),
 ]

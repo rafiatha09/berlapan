@@ -1,6 +1,6 @@
 from django.db import models
 from django.db.models.fields import CharField, DateField, EmailField, TextField, TimeField, URLField
-
+from django.contrib.auth.models import User
 
 class NamaLayanan(models.Model) :
     GOLDAR_CHOICES = [  ('A','A'),
@@ -43,6 +43,7 @@ class NamaLayanan(models.Model) :
                             ('Papua Barat','Papua Barat'),
                             ('Papua','Papua'),
                             ]
+    #user = models.OneToOneField(User, on_delete=models.CASCADE)
     Number = models.IntegerField()
     Name = models.CharField(max_length=30)
     City = models.CharField(max_length=20)
@@ -57,6 +58,7 @@ class DonorForm(models.Model) :
                         ('AB','AB'),
                         ('O','O'),
                         ]
+   # user = models.OneToOneField(User, on_delete=models.CASCADE)
     FullName = models.CharField('Nama Lengkap', max_length=30)
     BirthDate = models.DateField('Tanggal Lahir')
     NIK = models.CharField('Nomor Induk Kependudukan (NIK)', max_length=16)

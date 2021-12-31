@@ -9,7 +9,7 @@ from donordarah.models import DonorForm
 class DonorDarahForm(forms.ModelForm):
     class Meta:
         model = DonorForm
-        fields = '__all__'
+        fields = ('FullName', 'BirthDate', 'NIK', 'Goldar', 'Sentra', 'Date','Time')
         
         widgets = {
             'FullName' : forms.TextInput(attrs={'id':'namaForm', 'type':'text', 'class' : 'form-control', 'placeholder' : 'Masukkan Nama Lengkap'}),

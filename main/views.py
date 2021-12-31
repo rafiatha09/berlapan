@@ -6,8 +6,8 @@ from django.contrib.auth import authenticate, login, logout
 from django import forms
 from .form import UserProfileForm, ExtendUserCreationForm
 from .models import Profile
-
-
+from django.views.decorators.csrf import csrf_exempt
+from django.core import serializers
 from django.contrib.auth.decorators import login_required
 
 
@@ -72,4 +72,7 @@ def signout(request):
     logout(request)
     return redirect("home")
 
-
+@csrf_exempt
+def flutter(request):
+    data = serializers.serialize('json', User.objects.all())
+    return HttpResponse(data, content_type = "application/json")

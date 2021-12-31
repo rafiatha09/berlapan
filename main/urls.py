@@ -18,4 +18,6 @@ urlpatterns = [
     path('signin/', views.signin, name="singin"),
     path('signout/', views.signout, name="singout"),
     # path('register/',views.userprofile, name='register')
+    path('json', views.flutter, name= 'json'),
+    
 ]

@@ -6,6 +6,9 @@ from django.shortcuts import redirect, render
 
 from .forms import DonorDarahForm
 from .models import DonorForm, NamaLayanan
+from django.views.decorators.csrf import csrf_exempt
+from django.core import serializers
+from django.http import HttpResponse
 
 
 def donorPage(request):
@@ -37,3 +40,8 @@ def hasilFormPage(request) :
 
     response = {'result' : result}
     return render(request, 'outputform.html', response)
+
+@csrf_exempt
+def flutter(request):
+    data = serializers.serialize('json', DonorForm.objects.all())
+    return HttpResponse(data, content_type = "application/json")
